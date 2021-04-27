@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+    <style name="StatsTitle">
+        <item name="android:layout_gravity">center|top</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="StatValue">
+        <item name="android:layout_gravity">center|bottom</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+    <style name="BottomSheetDialogStyle">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="PosterImageStyle" parent="">
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+    </style>
+</resources>

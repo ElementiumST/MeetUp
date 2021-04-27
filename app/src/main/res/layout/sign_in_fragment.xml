@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".features.auth.signIn.SignInFragment">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authorization"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.288" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.example.together.features.views.auth.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:inputType="phone"
+                app:title="@string/phoneNumber" />
+
+            <com.example.together.features.views.auth.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:inputType="textPassword"
+                app:title="@string/password" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/SignIn"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:background="@drawable/button_background"
+            android:text="@string/signIn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@color/accent_light" />
+
+        <com.example.together.features.views.auth.TwoColorNonAccentButton
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:id="@+id/SignUp"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            app:firstText="@string/isFirstTime"
+            app:secondText="@string/doSignUp"
+            app:layout_constraintBottom_toTopOf="@+id/SignIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/vkSignIn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/googleSignIn"
+            app:layout_constraintEnd_toStartOf="@+id/googleSignIn"
+            app:layout_constraintTop_toTopOf="@+id/googleSignIn"
+            app:srcCompat="@drawable/vk"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anotherAuth"
+            android:textColor="@color/gray_400"
+            app:layout_constraintBottom_toTopOf="@+id/SignUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.313" />
+
+        <ImageView
+            android:id="@+id/googleSignIn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/google"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            app:layout_constraintStart_toEndOf="@+id/googleSignIn"
+            app:layout_constraintTop_toTopOf="@+id/googleSignIn"
+            app:srcCompat="@drawable/facebook"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/ic_together" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

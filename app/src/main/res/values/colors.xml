@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#FFA900</color>
+    <color name="accent_dark">#D69209</color>
+    <color name="accent_light">#FFBE40</color>
+    <color name="black">#FF000000</color>
+    <color name="background">#191C27</color>
+    <color name="background_light_400">#292D3C</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="background_light_200">#303443</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_500">#9E9E9E</color>
+
+</resources>

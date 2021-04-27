@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TwoColorTextHolder">
+        <attr name="firstText" format="string"/>
+        <attr name="secondText" format="string" />
+        <attr name="reverse" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomEditText">
+        <attr name="alertText" format="string" />
+        <attr name="title" format="string" />
+        <attr name="android:inputType" />
+    </declare-styleable>
+    <declare-styleable name="RoundedProfileImage">
+        <attr name="image" format="reference"/>
+    </declare-styleable>
+</resources>
