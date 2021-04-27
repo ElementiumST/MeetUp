@@ -62,70 +62,23 @@
                 tools:text="23.03.2021"/>
 
         </LinearLayout>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            app:cardBackgroundColor="@color/background_light_200"
-            app:cardCornerRadius="0dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
+            android:id="@+id/postContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/roundedProfileImage"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="48dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/profileImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="6dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/roundedProfileImage"
-                app:layout_constraintTop_toTopOf="@+id/roundedProfileImage"
-                tools:text="Lorem master" />
-
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="6dp"
-                android:textColor="@color/gray_400"
-                app:layout_constraintBottom_toBottomOf="@+id/roundedProfileImage"
-                app:layout_constraintStart_toEndOf="@+id/roundedProfileImage"
-                tools:text="31 мая 2021" />
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/moreInfo"
-                app:layout_constraintStart_toStartOf="@+id/roundedProfileImage"
-                app:layout_constraintTop_toBottomOf="@+id/roundedProfileImage"
-                tools:text="@string/lorem" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tagList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/membersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </layout>
