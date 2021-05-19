@@ -2,8 +2,8 @@ package com.example.together.features.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.together.data.testRetrofit.travels.TravelsRepository
-import com.example.together.data.testRetrofit.user.repos.UserProfileRepository
+import com.example.together.data.api.travels.TravelsRepository
+import com.example.together.data.api.user.repos.UserProfileRepository
 import io.reactivex.disposables.CompositeDisposable
 
 class HomeViewModelFactory(

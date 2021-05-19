@@ -2,16 +2,14 @@ package com.example.together.features.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.together.data.testRetrofit.travels.TravelsRepository
-import com.example.together.data.testRetrofit.travels.model.Travel
-import com.example.together.data.testRetrofit.user.model.Profile
-import com.example.together.data.testRetrofit.user.repos.UserProfileRepository
+import com.example.together.data.api.travels.TravelsRepository
+import com.example.together.data.api.travels.model.Travel
+import com.example.together.data.api.user.model.Profile
+import com.example.together.data.api.user.repos.UserProfileRepository
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.Action
 import io.reactivex.schedulers.Schedulers
-import org.reactivestreams.Subscription
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 

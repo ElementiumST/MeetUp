@@ -41,4 +41,5 @@ class RetrofitModule {
         return HttpLoggingInterceptor()
             .apply { level = HttpLoggingInterceptor.Level.BODY }
     }
+
 }

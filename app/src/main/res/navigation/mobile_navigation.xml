@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.together.features.home.ui.home.HomeFragment"
+        android:name="com.example.together.features.home.ui.home.NewsFragment"
         android:label="@string/title_travels"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_notifications"

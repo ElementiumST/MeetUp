@@ -1,10 +1,12 @@
 package com.example.together.features.views.auth
 
 import android.content.Context
+import android.text.Editable
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.core.widget.addTextChangedListener
 import com.example.together.R
 import com.example.together.databinding.CustomEditTextBinding
 class CustomEditText: FrameLayout {
@@ -51,6 +53,15 @@ class CustomEditText: FrameLayout {
         binding.alertText.text = alertText
         binding.title.text = title
         binding.editText.inputType = inputType
+    }
+    fun getText(): String {
+        return binding.editText.text.toString()
+    }
+
+    fun addTextChangeListener(function: (it: String) -> Unit) {
+        binding.editText.addTextChangedListener {
+            function.invoke(binding.editText.text.toString())
+        }
     }
 
 }

@@ -9,7 +9,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             app:cardBackgroundColor="@color/background_light_200"
@@ -33,6 +33,7 @@
                         android:id="@+id/profileImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
                         tools:srcCompat="@tools:sample/avatars" />
                 </androidx.cardview.widget.CardView>
 
@@ -79,7 +80,7 @@
                     tools:text="@string/lorem" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button"
+                    android:id="@+id/likeButton"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
@@ -93,16 +94,16 @@
                     tools:text="148к" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button2"
+                    android:id="@+id/repostBtn"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:drawableStart="@drawable/ic_forward_dark"
                     android:minWidth="78dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/button"
-                    app:layout_constraintStart_toEndOf="@+id/button"
-                    app:layout_constraintTop_toTopOf="@+id/button"
+                    app:layout_constraintBottom_toBottomOf="@+id/likeButton"
+                    app:layout_constraintStart_toEndOf="@+id/likeButton"
+                    app:layout_constraintTop_toTopOf="@+id/likeButton"
                     tools:text="43" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

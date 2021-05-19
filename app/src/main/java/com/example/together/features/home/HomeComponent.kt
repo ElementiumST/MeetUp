@@ -1,9 +1,7 @@
 package com.example.together.features.home
 
-import com.example.together.data.testRetrofit.travels.TravelsRepository
-import com.example.together.data.testRetrofit.user.repos.UserProfileRepository
-import com.example.together.features.home.ui.map.MapViewModelFactory
-import com.example.together.features.home.ui.map.MapsFragment
+import com.example.together.data.api.travels.TravelsRepository
+import com.example.together.data.api.user.repos.UserProfileRepository
 import com.example.together.features.utils.AppComponent
 import dagger.Component
 import dagger.Module

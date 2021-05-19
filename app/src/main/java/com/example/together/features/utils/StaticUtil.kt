@@ -3,8 +3,10 @@ package com.example.together.features.utils
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
@@ -16,6 +18,12 @@ fun bitmapDescriptorFromVector(context: Context, @DrawableRes vectorResId: Int):
     val canvas = Canvas(bitmap)
     vectorDrawable.draw(canvas)
     return BitmapDescriptorFactory.fromBitmap(bitmap)
+}
+
+fun ImageView.loadImage(url: String) {
+    Glide.with(this)
+            .load(url)
+            .into(this)
 }
 const val mapStyle =
         "[\n" +

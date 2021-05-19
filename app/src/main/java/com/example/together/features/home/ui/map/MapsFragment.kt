@@ -4,15 +4,12 @@ import android.annotation.SuppressLint
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.example.together.R
-import com.example.together.data.testRetrofit.model.Position
-import com.example.together.data.testRetrofit.travels.model.Travel
+import com.example.together.data.api.travels.model.Travel
 import com.example.together.databinding.FragmentMapsBinding
 import com.example.together.features.home.HomeActivity
 import com.example.together.features.home.ui.map.travelabout.TravelAboutBottomFragment
@@ -24,7 +21,6 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import javax.inject.Inject

@@ -12,8 +12,8 @@ import com.example.together.R
 class TwoColorTextView(context: Context, attrs: AttributeSet?) :
     androidx.appcompat.widget.AppCompatTextView(context, attrs) {
 
-    private val firstText: String
-    private val secondaryText: String
+    private var firstText: String
+    private var secondaryText: String
     private val isReverse: Boolean
 
     init {
@@ -32,41 +32,53 @@ class TwoColorTextView(context: Context, attrs: AttributeSet?) :
         } finally {
             typedArray.recycle()
         }
+        updateText()
+    }
+    fun setFirstText(s: String) {
+        firstText = s;
+        updateText()
+    }
+    fun setSecondText(s: String) {
+        secondaryText = s;
+        updateText()
+    }
+
+    private fun updateText() {
         if (isReverse) {
             setTextColor(
-                resources.getColor(
-                    R.color.gray_400,
-                    context.theme
-                )
+                    resources.getColor(
+                            R.color.gray_400,
+                            context.theme
+                    )
             )
             text = SpannableString("$firstText $secondaryText").apply {
                 setSpan(
-                    ForegroundColorSpan(resources.getColor(
-                        R.color.gray_200,
-                        context.theme)),
-                    0,
-                    firstText.length,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        ForegroundColorSpan(resources.getColor(
+                                R.color.gray_200,
+                                context.theme)),
+                        0,
+                        firstText.length,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
         } else {
             setTextColor(
-                resources.getColor(
-                    R.color.gray_200,
-                    context.theme
-                )
+                    resources.getColor(
+                            R.color.gray_200,
+                            context.theme
+                    )
             )
             text = SpannableString("$firstText $secondaryText").apply {
                 setSpan(
-                    ForegroundColorSpan(resources.getColor(
-                        R.color.gray_400,
-                        context.theme)),
-                    0,
-                    firstText.length,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        ForegroundColorSpan(resources.getColor(
+                                R.color.gray_400,
+                                context.theme)),
+                        0,
+                        firstText.length,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
         }
-
     }
+
 }

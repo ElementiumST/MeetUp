@@ -3,10 +3,8 @@ package com.example.together.features.home.ui.map
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.together.data.testRetrofit.model.Position
-import com.example.together.data.testRetrofit.travels.model.Travel
-import com.example.together.data.testRetrofit.user.repos.UserProfileRepository
-import com.example.together.features.home.HomeViewModel
+import com.example.together.data.api.newsLine.model.Position
+import com.example.together.data.api.travels.model.Travel
 import io.reactivex.disposables.CompositeDisposable
 
 class MapViewModel(
@@ -41,6 +39,7 @@ class MapViewModel(
                 if(markerId == travel.markerId) return travel
             }
         }
+        Log.e("TESTESTEST", "find currupted")
         return null
     }
 

@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.together.R
-import com.example.together.data.testRetrofit.travels.model.Travel
+import com.example.together.data.api.travels.model.Travel
 import com.example.together.databinding.TravelAboutBottomFragmentBinding
+import com.example.together.features.tags.TagsAdapter
+import com.example.together.features.views.post.PostView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.xiaofeng.flowlayoutmanager.FlowLayoutManager
 
 
 class TravelAboutBottomFragment: BottomSheetDialogFragment() {
@@ -48,7 +50,28 @@ class TravelAboutBottomFragment: BottomSheetDialogFragment() {
         prepareTopPreviewImage()
         prepareImageList()
         prepareTextDataOfTravel()
+        preparePostHolder()
+        prepareTags()
         return binding.root
+    }
+
+    private fun prepareTags() {
+        binding.tagList.layoutManager =
+            FlowLayoutManager()
+                .apply { isAutoMeasureEnabled = true }
+        binding.tagList.adapter =
+            TagsAdapter(travel.tags!!)
+    }
+
+    private fun preparePostHolder() {
+        binding.postContainer
+                .addView(
+                        PostView(
+                                post = travel.post!!,
+                                context = requireContext(),
+                                null
+                        )
+                )
     }
 
     private fun prepareTextDataOfTravel() {
