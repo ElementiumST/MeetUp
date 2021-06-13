@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.together.R
 import com.example.together.databinding.ActivityHomeBinding
+import com.example.together.features.home.newtravel.NewTravelBottomFragment
 import com.example.together.features.utils.App
 import javax.inject.Inject
 
@@ -39,6 +39,12 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+
+        binding.addTravelFab.setOnClickListener {
+            NewTravelBottomFragment
+                .newInstance()
+                .show(supportFragmentManager, NewTravelBottomFragment.TAG)
+        }
     }
 
     private fun initDagger() {

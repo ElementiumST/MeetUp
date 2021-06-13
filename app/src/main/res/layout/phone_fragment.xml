@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.example.together.features.views.auth.CustomEditText
+        android:id="@+id/customEditText"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
@@ -43,6 +44,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.example.together.features.views.auth.TwoColorTextView
+        android:id="@+id/twoColorTextView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="32sp"
+        app:firstText="Теперь введите"
+        app:layout_constraintEnd_toEndOf="@+id/customEditText"
+        app:layout_constraintStart_toStartOf="@+id/customEditText"
+        app:layout_constraintTop_toBottomOf="@+id/customEditText"
+        app:secondText="код из СМС: " />
+
+    <com.example.together.features.views.auth.CustomEditText
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        app:title="код из СМС"
+        app:layout_constraintEnd_toEndOf="@+id/twoColorTextView2"
+        app:layout_constraintStart_toStartOf="@+id/twoColorTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/twoColorTextView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,11 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.example.together.data.api.user.model.Profile
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import io.reactivex.Observable
+import io.reactivex.Single
 
 
 fun bitmapDescriptorFromVector(context: Context, @DrawableRes vectorResId: Int): BitmapDescriptor? {
@@ -19,11 +22,15 @@ fun bitmapDescriptorFromVector(context: Context, @DrawableRes vectorResId: Int):
     vectorDrawable.draw(canvas)
     return BitmapDescriptorFactory.fromBitmap(bitmap)
 }
+fun Profile.getUsername() = "$firstName $secondName"
 
 fun ImageView.loadImage(url: String) {
     Glide.with(this)
             .load(url)
             .into(this)
+}
+fun<T> createEmptySingle(): Single<T> {
+    return Single.fromObservable(Observable.empty())
 }
 const val mapStyle =
         "[\n" +

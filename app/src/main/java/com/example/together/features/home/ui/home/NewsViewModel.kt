@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.together.data.api.newsLine.PostRepository
 import com.example.together.data.api.newsLine.model.Post
+import com.example.together.features.utils.createEmptySingle
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -22,11 +23,10 @@ class NewsViewModel(
             .getNewsLine()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .doOnError {
-                Timber.tag(TAG).e(it)
-            }
-            .subscribe { it ->
+            .subscribe( { it ->
                 posts.value = it
-            }.also { compositeDisposable.add(it) }
+            }, {
+                Timber.tag(TAG).e(it)
+            }).also { compositeDisposable.add(it) }
     }
 }

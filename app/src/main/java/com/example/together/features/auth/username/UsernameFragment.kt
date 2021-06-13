@@ -64,7 +64,7 @@ class UsernameFragment : Fragment() {
         viewModel.canNext.observe(viewLifecycleOwner) {
             if(it) {
                 binding.validationName.visibility = View.VISIBLE
-                binding.validationName.setFirstText("${binding.secondName.getText()} ${binding.firstName.getText()},")
+                binding.validationName.setFirstText("${binding.firstName.getText()} ${binding.secondName.getText()},")
             } else {
                 binding.validationName.visibility = View.INVISIBLE
             }

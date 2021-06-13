@@ -41,6 +41,7 @@ class ProfileFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(inflater)
+        binding.pager.adapter = ProfilePageAdapter(parentFragmentManager, lifecycle)
         initDagger()
         setupProfileData()
         return binding.root
