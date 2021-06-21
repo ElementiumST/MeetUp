@@ -29,10 +29,14 @@ class NewsFragment : Fragment() {
         initDagger()
         subscribeOnPost()
         binding = FragmentNewsBinding.inflate(inflater)
+        bindLists()
+        return binding.root
+    }
+
+    private fun bindLists() {
         binding.newsList.layoutManager = LinearLayoutManager(requireContext())
         newsAdapter = NewsAdapter()
         binding.newsList.adapter = newsAdapter
-        return binding.root
     }
 
     private fun subscribeOnPost() {

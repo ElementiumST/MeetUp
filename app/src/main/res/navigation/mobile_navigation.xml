@@ -17,7 +17,7 @@
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/inviteFragment"
+        android:id="@+id/navigation_invite"
         android:name="com.example.together.features.home.ui.invote.InviteFragment"
         android:label="@string/invite_friend"
         tools:layout="@layout/invite_fragment" />

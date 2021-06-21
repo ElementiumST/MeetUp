@@ -11,17 +11,22 @@
             android:orientation="vertical"
             >
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.example.together.features.views.auth.CustomEditText
+                android:id="@+id/title"
                 android:layout_width="match_parent"
-                app:boxBackgroundColor="@color/background_light_400"
-                android:background="@drawable/custom_edit_text_background"
-                android:layout_height="match_parent">
+                app:title="Название"
+                android:layout_height="60dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="hint" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <com.example.together.features.views.auth.CustomEditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:title="Описание"
+                android:inputType="textMultiLine" />
+
+            <com.example.together.features.views.auth.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

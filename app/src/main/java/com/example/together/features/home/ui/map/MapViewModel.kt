@@ -39,7 +39,6 @@ class MapViewModel(
                 if(markerId == travel.markerId) return travel
             }
         }
-        Log.e("TESTESTEST", "find currupted")
         return null
     }
 

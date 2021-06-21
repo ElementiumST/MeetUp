@@ -16,7 +16,53 @@ class PostRepositoryImpl(
         const val TAG = "PostRepositoryImpl"
     }
     override fun getNewsLine(): Single<List<Post>> {
-        return postApi.getNewsPosts()
+        return Single.just(listOf(
+            Post(
+                "somePostId",
+                "11 апреля будет проходить студ. весна в ОГУ.\n" +
+                        "Приглашаем всех желающих!",
+                "5.04.2021",
+                230,
+                15,
+                Profile(
+                    "8274278348273",
+                    "Ник",
+                    "Рутович",
+                    "https://sun9-66.userapi.com/impf/c637227/v637227071/511b9/9bHHnpkD8r8.jpg?size=512x512&quality=96&proxy=1&sign=649b43e820821859da6ef196073f0c77&type=album",
+                    "Админ",
+                    -1,
+                    12,
+                    12,
+                    Position(
+                        "gdukfgjlfds",
+                        51.771718,
+                        55.140528
+                    )
+                )
+            ),
+            Post(
+                "somePostId",
+                "Доброго вечера! Как у вас дела?",
+                "1.04.2021",
+                13,
+                0,
+                Profile(
+                    "8274278348273",
+                    "Ник",
+                    "Рутович",
+                    "https://sun9-66.userapi.com/impf/c637227/v637227071/511b9/9bHHnpkD8r8.jpg?size=512x512&quality=96&proxy=1&sign=649b43e820821859da6ef196073f0c77&type=album",
+                    "Админ",
+                    -1,
+                    12,
+                    12,
+                    Position(
+                        "gdukfgjlfds",
+                        51.771718,
+                        55.140528
+                    )
+                )
+            ),
+        ))
     }
 
     override fun getUserNews(): Single<List<Post>> {
