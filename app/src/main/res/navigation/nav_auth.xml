@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_signInFragment_to_usernameFragment"
             app:destination="@id/usernameFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <activity
         android:id="@+id/homeActivity"
@@ -36,4 +39,13 @@
         android:name="com.example.together.features.auth.phone.PhoneFragment"
         android:label="phone_fragment"
         tools:layout="@layout/phone_fragment" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.together.features.auth.signUp.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/sign_up_fragment">
+        <action
+            android:id="@+id/action_signUpFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
+    </fragment>
 </navigation>

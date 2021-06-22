@@ -20,7 +20,7 @@ class RetrofitModule {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
-            .baseUrl("https://jsonplaceholder.typicode.com")
+            .baseUrl("http://95.105.113.127:50050/api/v1/")
             .build()
     }
 

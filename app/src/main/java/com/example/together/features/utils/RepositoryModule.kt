@@ -9,9 +9,10 @@ import com.example.together.data.api.newsLine.api.PostApi
 import com.example.together.data.api.travels.TravelsRepository
 import com.example.together.data.api.travels.TravelsRepositoryImpl
 import com.example.together.data.api.travels.api.TravelsApi
+import com.example.together.data.api.user.api.AuthApi
 import com.example.together.data.api.user.api.ProfileApi
-import com.example.together.data.api.user.repos.UserProfileRepository
-import com.example.together.data.api.user.repos.UserProfileRepositoryImpl
+import com.example.together.data.api.user.repos.*
+import com.example.together.domain.userdata.AccountHolder
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -32,13 +33,25 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun providePostRepository(postApi: PostApi): PostRepository {
-        return PostRepositoryImpl(postApi)
+    fun providePostRepository(accountHolder: AccountHolder, postApi: PostApi): PostRepository {
+        return PostRepositoryImpl(postApi, accountHolder)
     }
 
     @Provides
     @Singleton
     fun provideFriendsRepository(friendsApi: FriendsApi): FriendsRepository {
         return FriendsRepositoryImpl(friendsApi)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSignInRepository(authApi: AuthApi): SignInRepository {
+        return SignInRepositoryImpl(authApi)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSignUpRepository(authApi: AuthApi): SignUpRepository {
+        return SignUpRepositoryImpl(authApi)
     }
 }

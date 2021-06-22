@@ -33,12 +33,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.example.together.features.views.auth.CustomEditText
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:inputType="phone"
-                app:title="@string/phoneNumber" />
+                android:inputType="textEmailAddress"
+                app:title="Email" />
 
             <com.example.together.features.views.auth.CustomEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:inputType="textPassword"

@@ -3,6 +3,7 @@ package com.example.together.features.utils
 import com.example.together.data.api.friends.api.FriendsApi
 import com.example.together.data.api.newsLine.api.PostApi
 import com.example.together.data.api.travels.api.TravelsApi
+import com.example.together.data.api.user.api.AuthApi
 import com.example.together.data.api.user.api.ProfileApi
 import dagger.Module
 import dagger.Provides
@@ -33,5 +34,11 @@ class ApiModule {
     @Singleton
     fun provideFriendsApi(retrofit: Retrofit): FriendsApi {
         return retrofit.create(FriendsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthApi(retrofit: Retrofit): AuthApi {
+        return retrofit.create(AuthApi::class.java)
     }
 }

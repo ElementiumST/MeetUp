@@ -37,6 +37,9 @@ class NewsFragment : Fragment() {
         binding.newsList.layoutManager = LinearLayoutManager(requireContext())
         newsAdapter = NewsAdapter()
         binding.newsList.adapter = newsAdapter
+        binding.addPost.setOnClickListener {
+            NewPostDialog.newInstance(newsViewModel).show(parentFragmentManager, NewPostDialog.TAG)
+        }
     }
 
     private fun subscribeOnPost() {

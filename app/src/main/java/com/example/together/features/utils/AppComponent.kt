@@ -7,9 +7,13 @@ import com.example.together.data.api.newsLine.PostRepository
 import com.example.together.data.api.newsLine.api.PostApi
 import com.example.together.data.api.travels.TravelsRepository
 import com.example.together.data.api.travels.api.TravelsApi
+import com.example.together.data.api.user.api.AuthApi
 import com.example.together.data.api.user.api.ProfileApi
+import com.example.together.data.api.user.repos.SignInRepository
+import com.example.together.data.api.user.repos.SignUpRepository
 import com.example.together.data.api.user.repos.UserProfileRepository
 import com.example.together.domain.auth.RegistrationCompiler
+import com.example.together.domain.userdata.AccountHolder
 import com.example.together.features.splash.SplashActivity
 import dagger.Component
 import retrofit2.Retrofit
@@ -41,4 +45,12 @@ interface AppComponent {
     fun provideFriendsApi(): FriendsApi
 
     fun provideFriendsRepository(): FriendsRepository
+
+    fun provideAuthApi(): AuthApi
+
+    fun provideSignInRepository(): SignInRepository
+
+    fun provideAccountHolder(): AccountHolder
+
+    fun provideSignUpRepository(): SignUpRepository
 }

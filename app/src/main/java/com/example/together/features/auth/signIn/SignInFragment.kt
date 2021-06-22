@@ -7,16 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.together.R
 import com.example.together.databinding.SignInFragmentBinding
+import com.example.together.features.utils.App
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKAccessToken
 import com.vk.api.sdk.auth.VKAuthCallback
 import com.vk.api.sdk.auth.VKScope
+import javax.inject.Inject
 
 
 class SignInFragment : Fragment() {
@@ -24,8 +27,9 @@ class SignInFragment : Fragment() {
     companion object {
         fun newInstance() = SignInFragment()
     }
-
-    private lateinit var viewModel: SignInViewModel
+    @Inject
+    lateinit var signInViewModelFactory: SignInViewModelFactory
+    private val viewModel: SignInViewModel by viewModels {signInViewModelFactory}
     private lateinit var binding: SignInFragmentBinding
     private lateinit var googleSignInOptions: GoogleSignInOptions
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -35,14 +39,11 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = SignInFragmentBinding.inflate(inflater)
+        initDagger()
         bindListeners()
+        bindObservers()
         initGoogleSignInClient()
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -67,13 +68,23 @@ class SignInFragment : Fragment() {
                         .build()
 
     }
+
     private fun bindListeners() {
         binding.SignIn.setOnClickListener {
+            if(binding.login.getText().isEmpty() || binding.password.getText().isEmpty()) {
+                Toast.makeText(context, "Поля должны быть заполнены!", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            viewModel.startSignInRequest(
+                binding.login.getText(),
+                binding.password.getText()
+            )
 //            Toast.makeText(context, "Неправильное имя пользователя или пароль", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_signInFragment_to_homeActivity)
+//            findNavController().navigate(R.id.action_signInFragment_to_homeActivity)
         }
         binding.SignUp.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_usernameFragment)
+//            findNavController().navigate(R.id.action_signInFragment_to_usernameFragment)
+            findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
         binding.vkSignIn.setOnClickListener {
             startVKSingIn()
@@ -82,8 +93,22 @@ class SignInFragment : Fragment() {
             //TODO Google auth
         }
     }
+
+    private fun bindObservers() {
+        viewModel.loginState.observe(viewLifecycleOwner) {
+            when (it) {
+                SignInStatus.Confirmed -> findNavController().navigate(R.id.action_signInFragment_to_homeActivity)
+                SignInStatus.Rejected -> Toast.makeText(context, "Неправильное имя пользователя или пароль", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
     private fun startVKSingIn() {
         VK.login(requireActivity(), arrayListOf(VKScope.PHONE, VKScope.FRIENDS,VKScope.PHOTOS, VKScope.WALL))
     }
-
+    private fun initDagger() {
+        DaggerSignInComponent.builder()
+            .appComponent(App.appComponent)
+            .build()
+            .inject(this)
+    }
 }
